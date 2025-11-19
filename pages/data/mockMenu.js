@@ -5,21 +5,36 @@
 export const menuItems = [
   {
     id: "p01",
-    name: "銷魂豬頭皮",
-    price: 60,
-    description: "Q彈有勁，滷汁入味。",
+    name: "紅騷羊肉湯真空包裝",
+    price: 180,
+    description: "真材實料，嚴選 800g",
+    images: [
+      "/images/hong-sao-mutton-vacuum.jpg",
+      "/images/hong-sao-mutton-noodles.jpg"
+    ],
   },
-  { id: "p02", name: "涼拌海帶絲", price: 40, description: "清爽開胃首選。" },
+  {
+    id: "p02",
+    name: "紅騷羊肉圖片",
+    price: 180,
+    description: "示意圖",
+    image: "/images/hong-sao-mutton-noodles.jpg",
+  },
   {
     id: "p03",
-    name: "秘製豆乾",
-    price: 50,
-    description: "獨門醬汁，層次豐富。",
+    name: "當歸羊肉真空包裝",
+    price: 180,
+    description: "香氣濃郁，滋補強身",
+    images: [
+      "/images/hong-sao-angelica-vacuum.jpg",
+      "/images/hong-sao-angelica-noodles.jpg"
+    ],
   },
   {
     id: "p04",
-    name: "黃金泡菜",
-    price: 50,
-    description: "酸甜帶勁，獨家醃製。",
+    name: "當歸羊肉麵線",
+    price: 120,
+    description: "暖胃好選擇",
+    image: "/images/hong-sao-angelica-noodles.jpg",
   },
 ];

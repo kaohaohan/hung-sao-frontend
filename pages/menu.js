@@ -1,11 +1,20 @@
-import { menuItems } from "./data/mockMenu";
 import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/store";
+import { menuItems } from "./data/mockMenu";
 
-export default function Menu({ products }) {
+import Link from "next/link";
+
+export default function Menu() {
   // 直接從 store 拿資料，不用 props！
   const [cart, setCart] = useAtom(cartAtom);
   const [, setIsCartOpen] = useAtom(isCartOpenAtom);
+
+  // const product = {
+  //   id: "duck-blood",
+  //   name: "紅騷羊肉湯真空包裝",
+  //   price: 180,
+  //   description: "真材實料，每包 800g",
+  // };
 
   // 加入購物車的邏輯（從 _app.js 移過來）
   const handleAddToCart = (product) => {
@@ -35,32 +44,34 @@ export default function Menu({ products }) {
       <h1 className="text-3xl font-bold mb-6 text-center">紅騷羊肉麵</h1>
       <p className="text-xl text-center mb-4">購物車數量： {totalQuantity}</p>
 
-      <ul>
-        {products.map((product) => {
-          return (
-            <li
-              key={product.id}
-              className="border p-4 rounded-lg shadow-lg bg-white mb-4"
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {menuItems.map((product) => (
+          <li
+            key={product.id}
+            className="border p-4 rounded-lg shadow-md bg-white hover:shadow-xl transition"
+          >
+            <Link href={`/products/${product.id}`}>
+              {" "}
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-40 h-40 object-cover rounded mb-2"
+              />
+            </Link>
+
+            <h2 className="text-xl font-semibold">{product.name}</h2>
+            <p className="text-lg text-red-600">${product.price}</p>
+            <p className="text-gray-600">{product.description}</p>
+
+            <button
+              onClick={() => handleAddToCart(product)}
+              className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
             >
-              <h2 className="text-xl font-semibold">{product.name}</h2>
-              <p className="text-lg text-red-600">${product.price}</p>
-              <p className="text-gray-600">{product.description}</p>
-              <button
-                onClick={() => handleAddToCart(product)}
-                className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                加入購物車
-              </button>
-            </li>
-          );
-        })}
+              加入購物車
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: { products: menuItems },
-  };
 }
