@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 //只是從 mockMenu → 換成 fetch /api/products/:id。
-import { menuItems } from "../data/mockMenu";
+import { menuItems } from "@/data/mockMenu";
 import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/store";
 import { useState } from "react";

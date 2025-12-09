@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 import { cartAtom, isCartOpenAtom } from "@/store";
-import { menuItems } from "./data/mockMenu";
+import { menuItems } from "@/data/mockMenu";
 
 import Link from "next/link";
 
