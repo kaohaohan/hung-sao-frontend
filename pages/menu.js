@@ -8,15 +8,8 @@ export default function Menu() {
   // 直接從 store 拿資料，不用 props！
   const [cart, setCart] = useAtom(cartAtom);
   const [, setIsCartOpen] = useAtom(isCartOpenAtom);
-
-  // const product = {
-  //   id: "duck-blood",
-  //   name: "紅騷羊肉湯真空包裝",
-  //   price: 180,
-  //   description: "真材實料，每包 800g",
-  // };
-
   // 加入購物車的邏輯（從 _app.js 移過來）
+
   const handleAddToCart = (product) => {
     const existingItem = cart.find((item) => item.id === product.id);
 
@@ -51,9 +44,8 @@ export default function Menu() {
             className="border p-4 rounded-lg shadow-md bg-white hover:shadow-xl transition"
           >
             <Link href={`/products/${product.id}`}>
-              {" "}
               <img
-                src={product.image}
+                src={product.images ? product.images[0] : product.image}
                 alt={product.name}
                 className="w-40 h-40 object-cover rounded mb-2"
               />
