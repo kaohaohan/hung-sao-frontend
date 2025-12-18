@@ -59,9 +59,31 @@ export default function Checkout() {
 
     try {
       // 2. 準備要送給後端的資料
+
+      // 📅 計算日期：今天 + 10 天（備貨時間）
+      const today = new Date();
+      const deliveryDate = new Date(today);
+      deliveryDate.setDate(today.getDate() + 10);
+
+      // 格式化成 YYYY-MM-DD
+      const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      };
+
       const orderData = {
-        items: cart,
+        // 🔄 轉換 items 格式：id → itemId
+        items: cart.map((item) => ({
+          itemId: item.id, // ✅ 改成 itemId
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity,
+        })),
         customerInfo: customerInfo,
+        pickupDate: formatDate(today), // ✅ 今天
+        deliveryDate: formatDate(deliveryDate), // ✅ 今天 + 10 天
       };
 
       // 3. fetch 到後端 API
