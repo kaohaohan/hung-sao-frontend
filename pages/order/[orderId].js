@@ -16,8 +16,9 @@ export default function OrderDetail() {
     const fetchOrder = async () => {
       try {
         setLoading(true);
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
         const response = await fetch(
-          `http://localhost:8080/api/orders/${orderId}`
+          `${apiUrl}/api/orders/${orderId}`
         );
 
         if (response.ok) {

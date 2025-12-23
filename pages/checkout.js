@@ -142,7 +142,8 @@ export default function Checkout() {
       };
 
       // 3. fetch 到後端 API
-      const response = await fetch("http://localhost:8080/api/orders", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+      const response = await fetch(`${apiUrl}/api/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
