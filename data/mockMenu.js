@@ -10,7 +10,7 @@ export const menuItems = [
     description: "真材實料，嚴選 800g",
     images: [
       "/images/hong-sao-mutton-vacuum.jpg",
-      "/images/hong-sao-mutton-noodles.jpg"
+      "/images/hong-sao-mutton-noodles.jpg",
     ],
   },
   {
@@ -27,7 +27,7 @@ export const menuItems = [
     description: "香氣濃郁，滋補強身",
     images: [
       "/images/hong-sao-angelica-vacuum.jpg",
-      "/images/hong-sao-angelica-noodles.jpg"
+      "/images/hong-sao-angelica-noodles.jpg",
     ],
   },
   {
