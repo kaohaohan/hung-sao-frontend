@@ -16,10 +16,9 @@ export default function OrderDetail() {
     const fetchOrder = async () => {
       try {
         setLoading(true);
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
-        const response = await fetch(
-          `${apiUrl}/api/orders/${orderId}`
-        );
+        const apiUrl =
+          process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+        const response = await fetch(`${apiUrl}/api/orders/${orderId}`);
 
         if (response.ok) {
           const data = await response.json();
@@ -95,10 +94,25 @@ export default function OrderDetail() {
     0
   );
   const shippingFee = order.amount - subtotal;
+  const formatDateTime = (value) => {
+    if (!value) return "";
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toLocaleString("zh-TW", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+  };
+  const orderDate = formatDateTime(order.createdAt);
 
   return (
     <div className="container mx-auto p-8">
       <h1 className="text-2xl font-bold mb-4">訂單詳情</h1>
+      {orderDate && <p className="text-gray-600 mb-4">訂單日期：{orderDate}</p>}
 
       {/* Header：订单摘要（可折叠）*/}
       <OrderSummary
