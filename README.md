@@ -1,40 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 紅騷羊肉麵 - 線上訂購系統
 
-## Getting Started
+> 美味宅配，招牌菜色
 
-First, run the development server:
+## 🌐 線上 Demo
+
+**正式網站：** [https://hung-sao-frontend.vercel.app/](https://hung-sao-frontend.vercel.app/)
+
+---
+
+## ✨ 功能特色
+
+- 📱 **RWD 響應式設計** - 支援手機、平板、桌機
+- 🛒 **購物車系統** - 即時更新、數量調整
+- 💳 **綠界金流整合** - 信用卡線上付款
+- 📦 **黑貓宅配** - 冷藏配送、時段選擇
+- 📋 **訂單管理** - 訂單詳情、付款狀態查詢
+- 🎨 **優雅 UI** - Tailwind CSS + Framer Motion
+
+---
+
+## 🛠 技術棧
+
+- **Framework:** Next.js 16 (React 19)
+- **狀態管理:** Jotai
+- **樣式:** Tailwind CSS
+- **動畫:** Framer Motion
+- **字體:** Google Fonts (Noto Serif TC)
+- **部署:** Vercel
+
+---
+
+## 🚀 本地開發
+
+### 1. 安裝依賴
+
+```bash
+npm install
+```
+
+### 2. 啟動開發服務器
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+瀏覽器打開 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 📂 專案結構
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```
+hung-sao-frontend/
+├── pages/              # 頁面路由
+│   ├── index.js        # 首頁
+│   ├── menu.js         # 菜單頁
+│   ├── checkout.js     # 結帳頁
+│   └── order/          # 訂單詳情
+├── components/         # React 組件
+│   ├── Navbar.js       # 導航欄
+│   ├── Cart.js         # 購物車
+│   └── OrderSummary.js # 訂單摘要
+├── data/               # 資料
+│   └── mockMenu.js     # 菜單資料
+├── store/              # 全域狀態
+│   └── index.js        # Jotai atoms
+├── utils/              # 工具函數
+│   └── shippingCalculator.js
+└── public/             # 靜態資源
+    └── images/         # 圖片
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📮 聯絡資訊
 
-To learn more about Next.js, take a look at the following resources:
+**門市地址：** 台北市文山區樟新街 12 號  
+**聯絡電話：** 02-2234-8097  
+**營業時間：** 週二至週日 11:30-14:00 / 17:30-20:30（週一公休）
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 授權
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+© 2025 紅騷羊肉麵. All rights reserved.
